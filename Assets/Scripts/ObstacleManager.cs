@@ -3,19 +3,20 @@ using System.Collections.Generic;
 
 public class ObstacleManager : MonoBehaviour
 {
-    public Transform player;
-    public GameObject[] obstaclePrefabs;
+    [Header("Referencje")]
+    [SerializeField] private Transform player;
+    [SerializeField] private GameObject[] obstaclePrefabs;
     
-    [Header("Ustawienia Zagęszczenia")]
-    [Tooltip("Główne zagęszczenie: Ile przeszkód ma otaczać kamerę w danej chwili.")]
-    [Range(10, 300)] public int maxObstacles = 75;
+    [Header("Ustawienia Zageszczenia")]
+    [Tooltip("Glowne zageszczenie: Ile przeszkod ma otaczac kamere w danej chwili.")]
+    [SerializeField] [Range(10, 300)] private int maxObstacles = 75;
 
-    [Tooltip("Minimalny odstęp między przeszkodami, żeby nie wchodziły jedna w drugą.")]
-    [Range(1f, 10f)] public float minSpacing = 3.0f;
+    [Tooltip("Minimalny odstep miedzy przeszkodami, zeby nie wchodzily jedna w druga.")]
+    [SerializeField] [Range(1f, 10f)] private float minSpacing = 3.0f;
 
     [Header("Obszar Generowania")]
-    public float spawnRadius = 35f;
-    public float despawnRadius = 50f;
+    [SerializeField] private float spawnRadius = 35f;
+    [SerializeField] private float despawnRadius = 50f;
 
     private List<GameObject> activeObstacles = new List<GameObject>();
     private Camera mainCam;

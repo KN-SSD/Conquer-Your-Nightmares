@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class WeaponPickup : MonoBehaviour
 {
-    [Tooltip("Wszystkie bronie do wyboru na starcie. Żebyśmy wiedzieli, co zniszczyć po wyborze jednej.")]
-    public List<GameObject> allPickupObjects;
+    [Tooltip("Wszystkie bronie do wyboru na starcie.")]
+    [SerializeField] private List<GameObject> allPickupObjects;
 
-    [Tooltip("Obiekt z konkretną bronią wewnątrz Gracza (np. Weapon_Sword, Weapon_Axe).")]
-    public Weapon playerWeaponToEquip; // <-- Zmieniliśmy typ z GameObject na Weapon!
+    [Tooltip("Obiekt z konkretna bronia wewnatrz Gracza (np. Weapon_Sword, Weapon_Axe).")]
+    [SerializeField] private Weapon playerWeaponToEquip;
 
     void OnTriggerEnter(Collider other)
     {

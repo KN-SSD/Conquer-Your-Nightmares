@@ -2,8 +2,8 @@
 
 public class Floor : MonoBehaviour
 {
-    [Tooltip("Co ile metrów podłoga ma 'przeskoczyć' (np. 50). Musi pasować do wielkości tekstury.")]
-    public float snapSize = 50f;
+    [Tooltip("Co ile metrow podloga ma przeskoczyc (np. 50). Musi pasowac do wielkosci tekstury.")]
+    [SerializeField] private float snapSize = 50f;
     
     private Camera cam;
 

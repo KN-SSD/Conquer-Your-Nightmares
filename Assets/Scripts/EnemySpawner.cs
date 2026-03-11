@@ -4,19 +4,19 @@ using System.Collections.Generic;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("Referencje")]
-    public Transform player;
-    public List<GameObject> normalEnemyPrefabs; 
+    [SerializeField] private Transform player;
+    [SerializeField] private List<GameObject> normalEnemyPrefabs; 
 
-    [Header("Ustawienia Zwykłego Spawnu")]
-    public float spawnRadius = 25f;
-    public float baseSpawnRate = 2f;
-    public float minSpawnRate = 0.2f;
+    [Header("Ustawienia Zwyklego Spawnu")]
+    [SerializeField] private float spawnRadius = 25f;
+    [SerializeField] private float baseSpawnRate = 2f;
+    [SerializeField] private float minSpawnRate = 0.2f;
 
     [Header("Ustawienia Chmary (Swarm)")]
-    public GameObject swarmPrefab;
-    public float swarmSpawnRate = 15f; 
-    public int minSwarmSize = 10;
-    public int maxSwarmSize = 20;
+    [SerializeField] private GameObject swarmPrefab;
+    [SerializeField] private float swarmSpawnRate = 15f; 
+    [SerializeField] private int minSwarmSize = 10;
+    [SerializeField] private int maxSwarmSize = 20;
 
     private float nextSpawnTime;
     private float nextSwarmTime;
