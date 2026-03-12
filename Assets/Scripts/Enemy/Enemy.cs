@@ -3,14 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class Enemy : MonoBehaviour, IDamageable
 {
-    [Header("Główne Statystyki")]
-    [SerializeField] protected float maxHealth = 100f;
-    [SerializeField] protected float moveSpeed = 4f;
+    [Header("Glowne Statystyki")]
+    [SerializeField] protected float maxHealth = 30f;
+    [SerializeField] protected float moveSpeed = 5f;
     
     [Header("Statystyki Ataku")]
-    [SerializeField] protected float damage = 10f;
-    [SerializeField] protected float knockbackOnPlayer = 0f;
-    [SerializeField] protected float attackCooldown = 1.0f;
+    [SerializeField] protected float damage = 15f;
+    [SerializeField] protected float knockbackOnPlayer = 3f;
+    [SerializeField] protected float attackCooldown = 0.8f;
 
     [Header("Fizyka")]
     [SerializeField] protected float knockbackResistance = 0f;

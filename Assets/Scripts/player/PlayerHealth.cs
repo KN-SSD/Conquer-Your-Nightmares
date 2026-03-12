@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
     [Header("Zdrowie")]
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float maxHealth = 150f;
     private float currentHealth;
 
     void Start()

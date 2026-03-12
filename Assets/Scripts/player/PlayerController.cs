@@ -13,6 +13,10 @@ public class PlayerController : MonoBehaviour
     [Header("Equipment")]
     [SerializeField] private Weapon currentWeapon;
     
+    // --- NOWOŚĆ: Miejsce na podpięcie Animatora ---
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+    
     private Rigidbody rb;
     private Camera mainCam;
     private GameInput inputActions;
@@ -73,13 +77,13 @@ public class PlayerController : MonoBehaviour
 
         if (isUsingWasdMovement)
         {
-            //tryb wasd
+            // tryb wasd
             Vector3 inputDir = new Vector3(moveInput.x, 0, moveInput.y).normalized;
             desiredVelocity = inputDir * maxSpeed;
         }
         else
         {
-            //tryb myszki
+            // tryb myszki
             Vector3 direction = (targetPosition - transform.position);
             direction.y = 0;
             
@@ -94,6 +98,25 @@ public class PlayerController : MonoBehaviour
         if (currentWeapon != null && currentWeapon.gameObject.activeInHierarchy)
         {
             currentWeapon.HandlePhysics(Time.fixedDeltaTime);
+        }
+
+        // --- NOWOŚĆ 1: OBRÓT W STRONĘ MYSZKI ---
+        Vector3 lookDir = targetPosition - transform.position;
+        lookDir.y = 0; // Ignorujemy oś Y, żeby postać nie pochylała się w podłogę
+        
+        if (lookDir.sqrMagnitude > 0.1f)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(lookDir);
+            // Slerp zapewnia płynne, miękkie obracanie się postaci
+            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRot, 15f * Time.fixedDeltaTime));
+        }
+
+        // --- NOWOŚĆ 2: WŁĄCZENIE ANIMACJI CHODZENIA ---
+        if (animator != null)
+        {
+            // Mierzymy wyłącznie prędkość poziomą (ignorujemy spadanie w dół)
+            Vector3 horizVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
+            animator.SetFloat("Speed", horizVel.magnitude);
         }
     }
 

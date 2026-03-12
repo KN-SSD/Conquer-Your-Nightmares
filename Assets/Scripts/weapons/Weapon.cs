@@ -3,15 +3,15 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [Header("Weapon Stats")]
-    [SerializeField] protected float baseDamage = 10f;
-    [SerializeField] protected float knockbackForce = 10f;
-    [SerializeField] protected float velocityDamageMultiplier = 2.0f;
+    [SerializeField] protected float baseDamage = 15f;
+    [SerializeField] protected float velocityDamageMultiplier = 1.5f;
     [SerializeField] protected float minDamageVelocity = 1.0f;
 
     [Header("Stat Multipliers (For Leveling Up)")]
     public float damageMultiplier = 1.0f;
     public float speedMultiplier = 1.0f;
     public float sizeMultiplier = 1.0f;
+    public float knockbackForce = 0f;
 
     [Header("Setup")]
     [Tooltip("Przeciągnij tutaj obiekt Model (to co faktycznie uderza).")]

@@ -8,13 +8,8 @@ public class Sword : Weapon
     [SerializeField] private float stability = 0.5f;
 
     [Header("Limits & Collisions")]
-    [Tooltip("Bazowa maksymalna prędkość obrotowa (zapobiega kręceniu się jak helikopter).")]
     [SerializeField] private float maxAngularVelocity = 25f;
-    
-    [Tooltip("Jak bardzo miecz odbija się od drzew (0 = staje w miejscu, 1 = sprężyna).")]
     [SerializeField] private float bounceBounciness = 0.6f;
-
-    [Tooltip("Ile pędu traci miecz przy trafieniu wroga (uczucie cięcia mięsa).")]
     [SerializeField] private float hitResistance = 0.15f;
 
     private float currentAngleY;
