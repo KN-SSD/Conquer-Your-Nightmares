@@ -155,12 +155,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35597142b5671be479693de5c7dbeef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SmartEnemy
-  maxHealth: 100
+  maxHealth: 1
   moveSpeed: 4
   damage: 10
   knockbackOnPlayer: 0
   attackCooldown: 1
   knockbackResistance: 0
+  xpGemPrefab: {fileID: 8030661478530477271, guid: 4c4d879db197b63409896c47db8d4608, type: 3}
+  baseXpReward: 10
   detectionRange: 5
   dangerousVelocity: 5
   dodgeSpeed: 12

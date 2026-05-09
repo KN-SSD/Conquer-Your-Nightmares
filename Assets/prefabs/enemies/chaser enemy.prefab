@@ -155,9 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f3db85e93433b48b6ac9ff0d4b302c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChaserEnemy
-  maxHealth: 100
+  maxHealth: 1
   moveSpeed: 4
   damage: 10
   knockbackOnPlayer: 0
   attackCooldown: 1
   knockbackResistance: 0
+  xpGemPrefab: {fileID: 8030661478530477271, guid: 4c4d879db197b63409896c47db8d4608, type: 3}
+  baseXpReward: 10

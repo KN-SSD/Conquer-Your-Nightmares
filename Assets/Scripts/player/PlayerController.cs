@@ -69,6 +69,18 @@ public class PlayerController : MonoBehaviour
                 Debug.DrawLine(transform.position, targetPosition, Color.green);
             }
         }
+        
+        if (Mouse.current != null && currentWeapon != null)
+                {
+                    if (Mouse.current.leftButton.wasPressedThisFrame)
+                    {
+                        currentWeapon.TriggerAttack(swingLeft: true);
+                    }
+                    else if (Mouse.current.rightButton.wasPressedThisFrame)
+                    {
+                        currentWeapon.TriggerAttack(swingLeft: false);
+                    }
+                }
     }
 
     void FixedUpdate()

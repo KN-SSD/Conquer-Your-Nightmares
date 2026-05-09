@@ -14,7 +14,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     [Header("Fizyka")]
     [SerializeField] protected float knockbackResistance = 0f;
-
+    
+    [Header("XP")]
+    [SerializeField] protected GameObject xpGemPrefab; 
+    [SerializeField] protected float baseXpReward = 10f; 
+    
     protected float currentHealth;
     protected Transform playerTarget;
     protected Rigidbody rb;
@@ -116,6 +120,19 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected virtual void Die()
     {
         isDead = true;
+
+        if (xpGemPrefab != null)
+        {
+            Vector3 dropPos = transform.position + Vector3.up * 0.5f; 
+            GameObject droppedGem = Instantiate(xpGemPrefab, dropPos, Quaternion.identity);
+
+            XPGem gemScript = droppedGem.GetComponent<XPGem>();
+            if (gemScript != null)
+            {
+                gemScript.xpValue = baseXpReward;
+            }
+        }
+
         Destroy(gameObject);
     }
 
@@ -158,5 +175,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         damage *= damageMultiplier;
         moveSpeed *= speedMultiplier;
         transform.localScale *= scaleMultiplier;
+        baseXpReward *= healthMultiplier;
     }
 }

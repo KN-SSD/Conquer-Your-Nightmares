@@ -30,6 +30,8 @@ public abstract class Weapon : MonoBehaviour
     private Vector3 lastPointPosition;
     protected float currentSpeed; 
 
+    // Nowa metoda do wywoływania ataków opartych na kierunku (LPM / PPM)
+    public virtual void TriggerAttack(bool swingLeft) { }
     public virtual void Initialize(PlayerController owner)
     {
         player = owner;
