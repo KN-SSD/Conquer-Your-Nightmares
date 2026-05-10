@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class EventClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
  
+    private Transform highlight;
+    private Transform selection;
    private void Awake()
     {
     }
@@ -22,7 +24,9 @@ public class EventClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
  
     }
     public void OnPointerEnter(PointerEventData eventData)
-    {}
+    {       Debug.Log("Najechano"); 
+        
+    }
     public void OnPointerExit(PointerEventData eventData)
     {}
 }
